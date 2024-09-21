@@ -1,0 +1,298 @@
+Aprende Haskell en 10 minutos
+Ciencias de la computacion
+
+Contents
+1	Introduccion
+2	Expresiones simples
+3	La consola
+4	Tipos Simples
+5	Datos estructurados
+6	Definicion de funciones
+7	Sintaxis conveniente
+8	Usando librerias
+9	Temas que no encajan en 10 minutos
+Introduccion
+Haskell es un lenguaje funcional (donde todo se hace con llamadas a funciones), estatico, implicitamente tipado (los tipos los revisa el compilador, pero no hace falta declararlos), perezoso (nada se hace hasta que es completamente necesario). Los lenguajes populares mas parecidos son la familia ML (que no son, sin embargo, lenguajes perezosos).
+
+El compilador de Haskell mas comun es GHC. Puede descargarlo de http://www.haskell.org/ghc/download . Los ejecutables de GHC estan disponibles para GNU/Linux, FreeBSD, MacOS, Windows, y Solaris. Una vez instalado GHC, se tienen dos programas que son de interes ahora: ghc, y ghci. El primero compila librerias y aplicaciones escritas en Haskell a codigo binario. El segundo es un interprete que permite escribir codigo Haskell y obtener un resultado inmediato.
+
+
+Expresiones simples
+Es posible escribir varias expresiones matematicas directamente en ghci y obtener un resultado. Prelude es el prompt por defecto de GHCi.
+
+ Prelude> 3 * 5
+ 15
+ Prelude> 4 ^ 2 - 1
+ 15
+ Prelude> (1 - 5)^(3 * 2 - 4)
+ 16
+Las cadenas van entre "comillas dobles." Puede concatenarlas con ++.
+
+ Prelude> "Hello"
+ "Hello"
+ Prelude> "Hello" ++ ", Haskell"
+ "Hello, Haskell"
+Las funciones se llaman colocando los argumentos directamente despues del nombre de la funcion. No hay parentesis en la llamada a la funcion:
+
+ Prelude> succ 5
+ 6
+ Prelude> truncate 6.59
+ 6
+ Prelude> round 6.59
+ 7
+ Prelude> sqrt 2
+ 1.4142135623730951
+ Prelude> not (5 < 3)
+ True
+ Prelude> gcd 21 14
+ 7
+
+La consola
+Las Acciones I/O se pueden usar para leer y escribir en la consola. Algunas son:
+
+ Prelude> putStrLn "Hello, Haskell"
+ Hello, Haskell
+ Prelude> putStr "No newline"
+ No newline
+ Prelude> print (5 + 4)
+ 9
+ Prelude> print (1 < 2)
+ True
+Las funciones putStr y putStrLn imprimen cadenas en la terminal. La funcion print imprime cualquier tipo de valor. (Si se hace print de una cadena, tendra comillas).
+
+Si necesita multiples acciones I/O en una expresion, puede usar un bloque do. Las acciones se separan con punto y coma.
+
+ Prelude> do { putStr "2 + 2 = " ; print (2 + 2) }
+ 2 + 2 = 4
+ Prelude> do { putStrLn "ABCDE" ; putStrLn "12345" }
+ ABCDE
+ 12345
+La lectura se puede hacer con <haske>getLine</hask> (que retorna una cadena String) o readLn (que retorna un valor de cualquier tipo que se desee). El simbolo <- se usa para asignar un nombre al resultado de la accion I/O.
+
+ Prelude> do { n <- readLn ; print (n^2) }
+ 4
+ 16
+(El 4 fue la etrada. El 16 la salida)
+
+Existe otra forma de escribir los bloques do. Si se suprimen las llaves y los punto y coma, la indentacion se vuelve importante. Esto no funciona muy bien en ghci, pero intente poniendolo en un fichero (por ejemplo, Test.hs) y compilelo.
+
+main = do putStrLn "What is 2 + 2?"
+          x <- readLn
+          if x == 4
+              then putStrLn "You're right!"
+              else putStrLn "You're wrong!"
+Puede compilar con ghc --make Test.hs, y el resultado se llamara Test. (en Windows, Test.exe) Se tiene una expresion if como un extra.
+
+El primer caracter no blanco luego de do es especial. En este caso, es la p en putStrLn. Cada linea que empieza en la misma columna que la p es otra instruccion en el bloque do. Si se indenta mas, se vuelve parte de la instruccion anterior. Si se indenta menos, se termina el bloque do. Esto se llama "layout", y Haskell lo usa para evitar el uso de puntos y coma y llaves todo el tiempo. (Las frases then y else deben estar indentadas por esta razon. Si empiezan en la misma columna, seran instrucciones separadas, lo que seria incorrecto).
+
+(Nota: No indente con tabulaciones si esta usando "layout". Tecnicamente funcionara si usa tabulaciones de 8 espacios, pero no es una buena idea. Tampoco use fuentes proporcionales que, aparentemente algunas personas usan, incluso para programar!).
+
+
+Tipos Simples
+Hasta ahora no se a mencionado ni un solo tipo. Esto es por que Haskell hace inferencia de tipos. Generalmente no es necesario declararlos a menos que se asi se quiera. Si desea declarar tipos, se puede usar :: para hacerlo.
+
+ Prelude> 5 :: Int
+ 5
+ Prelude> 5 :: Double
+ 5.0
+Tipos (y las clases de tipos, de las cuales se hablara luego) siempre empiezan con una letra mayuscula. Las variables siempre empiezan con una letra minuscula. Esta es una regla del lenguaje, no una |convencion.
+
+Se puede preguntar a ghci que tipo se ha elegido para algo. Esto es util por que generalmente no hay necesidad de declarar los tipos.
+
+ Prelude> :t True
+ True :: Bool
+ Prelude> :t 'X'
+ 'X' :: Char
+ Prelude> :t "Hello, Haskell"
+ "Hello, Haskell" :: [Char]
+(En caso de que lo haya notado, [Char] es otra forma de decir String. Vea la seccion sobre listas luego.)
+
+Algunas cosas se tornan mas interesantes con los numeros.
+
+ Prelude> :t 42
+ 42 :: (Num t) => t
+ Prelude> :t 42.0
+ 42.0 :: (Fractional t) => t
+ Prelude> :t gcd 15 20
+ gcd 15 20 :: (Integral t) => t
+Estos tipos usan "Clases de tipo". Significan:
+
+42 se puede usar como cualquier tipo numerico. (Esta es la razon por la que podemos declarar 5 como Int o como Double).
+42.0 puede ser cualquier tipo fraccionario, pero no un tipo integral.
+gcd 15 20 (que es una llamada de funcion) puede ser cualquier tipo integral, pero no un tipo fraccionario.
+Existen 5 tipos numericos en el "preludio" de Haskell (la parte de la libreria que se obtiene sin tener que importar nada):
+
+Int es un entero con al menos 30 bits de precision.
+Integer es un entero con precision ilimitada.
+Float es un numero de punto flotante con precision simple.
+Double es un numero de punto flotante con precision doble.
+Rational es un tipo fraccionario, sin error de redondeo.
+Los cinco son instancias de la clase de tipo Num. Los primeros dos son instancias de Integral, y los ultimos tres son instancias de Fractional.
+
+Poniendolo todo junto:
+
+ Prelude> gcd 42 35 :: Int
+ 7
+ Prelude> gcd 42 35 :: Double
+ <interactive>:1:0:
+     No instance for (Integral Double)
+El tipo final es un (), que se pronuncia "unidad". Solo tiene un valor, que se escribe tambien como () y se pronuncia "unidad" de igual manera.
+
+ Prelude> ()
+ ()
+ Prelude> :t ()
+ () :: ()
+Se puede pensar en este tipo como en void de la familia de lenguajes de C. Se puede retornar () desde una accion de I/O cuando no se quiere retornar nada en particular.
+
+
+Datos estructurados
+Los tipos de datos basicos se pueden combinar facilmente de dos maneras: listas, que van entre [corchetes], y tuplas, que van entre (parentesis).
+
+Las listas se usan para mantener multiples valores del mismo tipo.
+
+ Prelude> [1, 2, 3]
+ [1,2,3]
+ Prelude> [1 .. 5]
+ [1,2,3,4,5]
+ Prelude> [1, 3 .. 10]
+ [1,3,5,7,9]
+ Prelude> [True, False, True]
+ [True,False,True]
+Las cadenas solamente son listas de caracteres.
+
+ Prelude> ['H', 'e', 'l', 'l', 'o']
+ "Hello"
+El operador : agrega un elemento al principio de la lista. (Es la version de Haskell de cons de la familia de lenguajes de Lisp).
+
+ Prelude> 'C' : ['H', 'e', 'l', 'l', 'o']
+ "CHello"
+Las tuplas mantienen un numero fijo de valores, que pueden tener tipos distintos.
+
+ Prelude> (1, True)
+ (1,True)
+ Prelude> zip [1 .. 5] ['a' .. 'e']
+ [(1,'a'),(2,'b'),(3,'c'),(4,'d'),(5,'e')]
+El ultimo ejemplo usa zip, una funcion que convierte dos listas en una lista de tuplas.
+
+Los tipos son probablemente lo que se esperaria.
+
+ Prelude> :t ['a' .. 'c']
+ ['a' .. 'c'] :: [Char]
+ Prelude> :t [('x', True), ('y', False)]
+ [('x', True), ('y', False)] :: [(Char, Bool)]
+Las listas se usan mucho en Haskell. Has varias funcionas que haces cosas utiles con ellas.
+
+ Prelude> [1 .. 5]
+ [1,2,3,4,5]
+ Prelude> map (+ 2) [1 .. 5]
+ [3,4,5,6,7]
+ Prelude> filter (> 2) [1 .. 5]
+ [3,4,5]
+Hay dos funciones para pares ordenados (tuplas de dos elementos):
+
+ Prelude> fst (1, 2)
+ 1
+ Prelude> snd (1, 2)
+ 2
+ Prelude> map fst [(1, 2), (3, 4), (5, 6)]
+ [1,3,5]
+Tambien puede revisar como trabajar con listas.
+
+
+Definicion de funciones
+Habiamos escrito la definicion de acciones IO, llamada main:
+
+main = do putStrLn "What is 2 + 2?"
+          x <- readLn
+          if x == 4
+              then putStrLn "You're right!"
+              else putStrLn "You're wrong!"
+Ahora podemos suplementar escribiendo la definicion de una funcion y llamandola factorial. Tambien agregare un modulo de cabecera.
+
+module Main where
+
+factorial n = if n == 0 then 1 else n * factorial (n - 1)
+
+main = do putStrLn "What is 5! ?"
+          x <- readLn
+          if x == factorial 5
+              then putStrLn "You're right!"
+              else putStrLn "You're wrong!"
+Construyalo otra vez usando ghc --make Test.hs. y,
+
+ $ ./Test
+ What is 5! ?
+ 120
+ You're right!
+Ahi tenemos una funcion. Tal como las que vienen por defecto, se puede llamar como factorial 5 sin parentesis.
+
+Podemos preguntar el tipo a ghci.
+
+ $ ghci Test.hs
+ << GHCi banner >>
+ Ok, modules loaded: Main.
+ Prelude Main> :t factorial
+ factorial :: (Num a) => a -> a
+Los tipos de las funciones se escriben como el tipo del los argumentos, seguidos de ->, y luego el tipo del resultado. (Este ejemplo tambien tiene la clase de tipo Num).
+
+El factorial se puede simplificar escribiendo el analisis de casos.
+
+factorial 0 = 1
+factorial n = n * factorial (n - 1)
+
+Sintaxis conveniente
+Algo mas de sintaxis es util.
+
+secsToWeeks secs = let perMinute = 60
+                       perHour   = 60 * perMinute
+                       perDay    = 24 * perHour
+                       perWeek   =  7 * perDay
+                   in  secs / perWeek
+La expresion let define nombres temporales. (Esto es usando layout otra vez. Se puede usar {llaves}, y separar los nombres con punto y comas, si se prefiere).
+
+classify age = case age of 0 -> "newborn"
+                           1 -> "infant"
+                           2 -> "toddler"
+                           _ -> "senior citizen"
+La expresion case produce ramas de decision. La etiqueta especial _ significa "cualquier otra cosa".
+
+Usando librerias
+Todo lo que se ha usado hasta ahora es parte del Preludio, que es un conjunto de funciones Haskell que siempre estan disponibles sin solicitarlas.
+
+La mejor forma de volverse productivo en Haskell (aparte de la practica!) es familiarizarse con otras [[Applications and libraries|librerias] que hacen lo que necesite. La documentacion sobre las librerias estandar se encuentra en [http://haskell.org/ghc/docs/latest/html/libraries/ http://haskell.org/ghc/docs/latest/html/libraries/]. Hay varios modulos con:
+
+Useful data structures
+Concurrent and parallel programming
+Graphics and GUI libraries
+Networking, POSIX, and other system-level stuff
+Two test frameworks, QuickCheck and HUnit
+Regular expressions and predictive parsers
+More...
+Estructuras de datos utiles
+Concurrencia y programacion paralela
+Librerias de GUI y graficos
+Redes, POSIX, y otras cosas al nivel del sistema
+Dos frameworks de tests, QuickCheck y HUnit
+Expresiones regulares y parsers
+Mas...
+module Main where
+
+import qualified Data.Map as M
+
+errorsPerLine = M.fromList
+    [ ("Chris", 472), ("Don", 100), ("Simon", -5) ]
+
+main = do putStrLn "Who are you?"
+          name <- getLine
+          case M.lookup name errorsPerLine of
+              Nothing -> putStrLn "I don't know you"
+              Just n  -> do putStr "Errors per line: "
+                            print n
+La palabra reservada import dice que se usara el codigo de Data.Map y que tendra el prefijo de M. (Eso es necesario por que algunas funciones tienen el mismo nombre que las del preludio. La mayoria de librerias no necesitan la parte as).
+
+Si se quiere algo que no esta en la libreria estandar, intente buscar en http://hackage.haskell.org/packages/hackage.html o en la pagina de esta wiki aplicaciones y librerias. Esta es una coleccion de varias librerias distintas escritas por muchas personas para Haskell. Una vez que se obtienen una libreria, se puede extraerla y en el directorio obtenido hacer:
+
+ runhaskell Setup configure
+ runhaskell Setup build
+ runhaskell Setup install
+En un sistema UNIX, se puede necesitar ser root para esta ultima parte.

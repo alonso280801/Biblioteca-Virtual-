@@ -1,0 +1,42 @@
+Biologia molecular
+Biologia
+
+La biologia molecular es una rama de la biologia que se centra en el estudio de los procesos moleculares que tienen lugar en las celulas vivas. Esta disciplina se ha desarrollado en las ultimas decadas gracias al avance de la tecnologia, lo que ha permitido la identificacion y caracterizacion de las moleculas que componen los seres vivos y el estudio de su interaccion.
+
+En esta guia, te proporcionaremos una introduccion completa a la biologia molecular, desde sus fundamentos hasta las aplicaciones mas avanzadas.
+
+Fundamentos de la biologia molecular
+
+La biologia molecular se centra en el estudio de los procesos moleculares que tienen lugar en las celulas vivas, incluyendo la replicacion del ADN, la transcripcion del ARN, la sintesis de proteinas y la regulacion genica.
+
+ADN: el ladrillo fundamental de la vida
+
+El ADN es una molecula fundamental para la vida, ya que contiene la informacion genetica necesaria para el desarrollo y la funcion de los seres vivos. El ADN esta formado por una secuencia de nucleotidos, que se organizan en dos hebras complementarias unidas por puentes de hidrogeno.
+
+La replicacion del ADN es un proceso esencial para la division celular, en el que las dos hebras del ADN se separan y se utiliza cada hebra como molde para la sintesis de una nueva hebra complementaria.
+
+ARN: mensajero y ejecutor de la informacion genetica
+
+El ARN es una molecula que se sintetiza a partir del ADN, y que tiene diversas funciones en la celula. El ARN mensajero (ARNm) es el intermediario entre el ADN y las proteinas, y lleva la informacion genetica desde el nucleo de la celula hasta el citoplasma, donde se sintetizan las proteinas.
+
+Ademas del ARNm, existen otros tipos de ARN que cumplen diversas funciones en la celula, como el ARN ribosomico (ARNr) y el ARN de transferencia (ARNt).
+
+Sintesis de proteinas: el proceso central de la vida
+
+La sintesis de proteinas es el proceso central de la vida, ya que las proteinas son las moleculas encargadas de llevar a cabo las funciones celulares. Este proceso se lleva a cabo en los ribosomas, y consta de dos etapas principales: la transcripcion y la traduccion.
+
+Durante la transcripcion, se sintetiza una molecula de ARNm a partir de un segmento de ADN, y durante la traduccion, la informacion contenida en el ARNm se utiliza para sintetizar una cadena de aminoacidos, que se pliega en una estructura tridimensional para formar una proteina funcional.
+
+Regulacion genica: el control de la expresion genica
+
+La regulacion genica es el conjunto de procesos moleculares que controlan la expresion de los genes en una celula. Estos procesos incluyen la activacion y la inhibicion de la transcripcion del ADN, asi como la modificacion de la estructura de la cromatina y la degradacion de los ARN.
+Conceptos clave de la Biologia Molecular:
+
+Proteinas:
+Las proteinas son moleculas esenciales en los seres vivos y realizan una gran variedad de funciones, desde la estructura celular hasta la regulacion del metabolismo. Las proteinas estan formadas por cadenas de aminoacidos, que se unen mediante enlaces peptidicos. La secuencia de aminoacidos determina la estructura y funcion de la proteina.
+
+PCR:
+La reaccion en cadena de la polimerasa o PCR es una tecnica utilizada para amplificar una cantidad limitada de ADN. La tecnica se basa en la utilizacion de enzimas que sintetizan nuevas cadenas de ADN complementarias a una cadena molde. La PCR se utiliza en la identificacion de enfermedades geneticas, la identificacion de patogenos y la investigacion en biologia molecular.
+
+Secuenciacion de ADN:
+La secuenciacion de ADN es el proceso de determinar la secuencia de nucleotidos de un fragmento de ADN. La tecnica se basa en la utilizacion de enzimas que sintetizan nuevas cadenas de ADN complementarias a una cadena molde y la deteccion de las bases nitrogenadas mediante tecnicas de fluorescencia. La secuenciacion de ADN se utiliza en la investigacion genetica y en la identificacion de enfermedades geneticas.

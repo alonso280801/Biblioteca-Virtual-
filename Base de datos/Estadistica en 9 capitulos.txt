@@ -1,0 +1,30 @@
+Estadistica en 9 capitulos
+Actuaria
+Capitulo 1: Introducción a la Estadistica
+La estadistica es una disciplina que se utiliza para recopilar, analizar e interpretar datos. La estadistica se aplica en muchas areas, desde la economia hasta la medicina. En este capitulo se presentan los conceptos basicos de la estadistica, como la población, la muestra y las medidas de tendencia central.
+
+Capitulo 2: Recopilación de datos
+En este capitulo se describen los diferentes metodos de recopilación de datos, como encuestas y experimentos. Tambien se discuten las ventajas y desventajas de cada metodo y se explican los terminos como sesgo y error de muestreo.
+
+Capitulo 3: Analisis exploratorio de datos
+El analisis exploratorio de datos es una tecnica que se utiliza para examinar la distribución de los datos y detectar posibles valores atipicos o anomalias. En este capitulo se presentan los metodos comunes para la visualización de datos y cómo se pueden utilizar para identificar patrones y tendencias.
+
+Capitulo 4: Distribuciones de probabilidad
+Las distribuciones de probabilidad son herramientas estadisticas importantes que se utilizan para modelar fenómenos aleatorios. En este capitulo se presentan las distribuciones de probabilidad mas comunes, como la distribución normal y la distribución binomial, y cómo se pueden utilizar para realizar predicciones.
+
+Capitulo 5: Inferencia estadistica
+La inferencia estadistica se utiliza para hacer afirmaciones sobre una población en función de una muestra de datos. En este capitulo se discuten los conceptos de intervalos de confianza y pruebas de hipótesis, asi como los errores de tipo I y tipo II.
+
+Capitulo 6: Analisis de correlación y regresión
+La correlación y la regresión son herramientas estadisticas que se utilizan para medir la relación entre dos variables. En este capitulo se discute cómo se pueden utilizar para realizar predicciones y cómo se pueden interpretar los resultados.
+
+Capitulo 7: Diseño de experimentos
+El diseño de experimentos es una tecnica estadistica que se utiliza para controlar las variables en un estudio y hacer inferencias sobre la relación causa-efecto. En este capitulo se presentan los conceptos de diseño factorial y de bloques, asi como los metodos comunes de analisis de varianza.
+
+Capitulo 8: Analisis de datos categóricos
+Los datos categóricos se refieren a variables que no se pueden medir numericamente, como el genero o el tipo de sangre. En este capitulo se presentan los metodos de analisis de datos categóricos, como las pruebas de chi-cuadrado y las tablas de contingencia.
+
+Capitulo 9: Aplicaciones de la estadistica
+La estadistica se aplica en muchas areas, desde la investigación de mercado hasta la ciencia forense. En este capitulo se presentan algunas aplicaciones comunes de la estadistica y cómo se pueden utilizar para tomar decisiones informadas.
+
+En conclusión, la estadistica es una disciplina importante que se utiliza en muchos campos para recopilar, analizar e interpretar datos. La estadistica puede ser utilizada para realizar predicciones y tomar decisiones informadas. Este libro proporciona una introducción a los conceptos basicos de la estadistica y los metodos

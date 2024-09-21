@@ -1,0 +1,66 @@
+Que es la Programacion Orientada a Objetos
+Ciencias de la computacion
+La Programacion Orientada a Objetos (POO) es un paradigma de programacion, es decir, un modelo o un estilo de programacion que nos da unas guias sobre como trabajar con el. Se basa en el concepto de clases y objetos. Este tipo de programacion se utiliza para estructurar un programa de software en piezas simples y reutilizables de planos de codigo (clases) para crear instancias individuales de objetos. 
+
+A lo largo de la historia, han ido apareciendo diferentes paradigmas de programacion. Lenguajes secuenciales como COBOL o procedimentales como Basic o C, se centraban mas en la logica que en los datos. Otros mas modernos como Java, C# y Python, utilizan paradigmas para definir los programas, siendo la Programacion Orientada a Objetos la mas popular. 
+
+Con el paradigma de Programacion Orientado a Objetos lo que buscamos es dejar de centrarnos en la logica pura de los programas, para empezar a pensar en objetos, lo que constituye la base de este paradigma. Esto nos ayuda muchisimo en sistemas grandes, ya que en vez de pensar en funciones, pensamos en las relaciones o interacciones de los diferentes componentes del sistema.
+
+Un programador disenia un programa de software organizando piezas de informacion y comportamientos relacionados en una plantilla llamada clase. Luego, se crean objetos individuales a partir de la plantilla de clase. Todo el programa de software se ejecuta haciendo que varios objetos interactuen entre si para crear un programa mas grande.
+
+Que vas a ver en esta entrada
+¿Por que POO?
+Clases, objetos e instancias
+4 Principios de la Programacion Orientada a Objetos 
+Beneficios de Programacion Orientada a Objetos
+Conclusion
+¿Por que POO?
+La Programacion Orientada a objetos permite que el codigo sea reutilizable, organizado y facil de mantener. Sigue el principio de desarrollo de software utilizado por muchos programadores DRY (Don’t Repeat Yourself), para evitar duplicar el codigo y crear de esta manera programas eficientes. Ademas, evita el acceso no deseado a los datos o la exposicion de codigo propietario mediante la encapsulacion y la abstraccion, de la que hablaremos en detalle mas adelante.
+
+Clases, objetos e instancias
+¿Como se crean los programas orientados a objetos? Resumiendo mucho, consistiria en hacer clases y crear objetos a partir de estas clases. Las clases forman el modelo a partir del que se estructuran los datos y los comportamientos.
+
+El primer y mas importante concepto de la POO es la distincion entre clase y objeto.
+
+Una clase es una plantilla. Define de manera generica como van a ser los objetos de un determinado tipo. Por ejemplo, una clase para representar a animales puede llamarse ‘animal’ y tener una serie de atributos, como ‘nombre’ o ‘edad’ (que normalmente son propiedades), y una serie con los comportamientos que estos pueden tener, como caminar o comer, y que a su vez se implementan como metodos de la clase (funciones).
+
+Un ejemplo sencillo de un objeto, como deciamos antes, podria ser un animal. Un animal tiene una edad, por lo que creamos un nuevo atributo de ‘edad’ y, ademas, puede envejecer, por lo que definimos un nuevo metodo. Datos y logica. Esto es lo que se define en muchos programas como la definicion de una clase, que es la definicion global y generica de muchos objetos.
+
+Con la clase se pueden crear instancias de un objeto, cada uno de ellos con sus atributos definidos de forma independiente. Con esto podriamos crear un gato llamado Paco, con 3 anios de edad, y otro animal, este tipo perro y llamado Pancho, con una de edad de 4 anios. Los dos estan definidos por la clase animal, pero son dos instancias distintas. Por lo tanto, llamar a sus metodos puede tener resultados diferentes. Los dos comparten la logica, pero cada uno tiene su estado de forma independiente.
+
+Todo esto, junto con los principios que vamos a ver a continuacion, son herramientas que nos pueden ayudar a escribir un codigo mejor, mas limpio y reutilizable.
+
+4 Principios de la Programacion Orientada a Objetos 
+La encapsulacion
+La encapsulacion contiene toda la informacion importante de un objeto dentro del mismo y solo expone la informacion seleccionada al mundo exterior. 
+Esta propiedad permite asegurar que la informacion de un objeto este oculta para el mundo exterior, agrupando en una Clase las caracteristicas o atributos que cuentan con un acceso privado, y los comportamientos o metodos que presentan un acceso publico.
+
+La encapsulacion de cada objeto es responsable de su propia informacion y de su propio estado. La unica forma en la que este se puede modificar es mediante los propios metodos del objeto. Por lo tanto, los atributos internos de un objeto deberian ser inaccesibles desde fuera, pudiendose modificar solo llamando a las funciones correspondientes. Con esto conseguimos mantener el estado a salvo de usos indebidos o que puedan resultar inesperados. 
+
+Usamos de ejemplo un coche para explicar la encapsulacion. El coche comparte informacion publica a traves de las luces de freno o intermitentes para indicar los giros (interfaz publica). Por el contrario, tenemos la interfaz interna, que seria el mecanismo propulsor del coche, que esta oculto bajo el capo. Cuando se conduce un automovil es necesario indicar a otros conductores tus movimientos, pero no exponer datos privados sobre el tipo de carburante o la temperatura del motor, ya que son muchos datos, lo que confundiria al resto de conductores.
+
+La abstraccion es cuando el usuario interactua solo con los atributos y metodos seleccionados de un objeto, utilizando herramientas simplificadas de alto nivel para acceder a un objeto complejo.
+
+En la programacion orientada a objetos, los programas suelen ser muy grandes y los objetos se comunican mucho entre si. El concepto de abstraccion facilita el mantenimiento de un codigo de gran tamanio, donde a lo largo del tiempo pueden surgir diferentes cambios.
+
+Asi, la abstraccion se basa en usar cosas simples para representar la complejidad. Los objetos y las clases representan codigo subyacente, ocultando los detalles complejos al usuario. Por consiguiente, supone una extension de la encapsulacion. Siguiendo con el ejemplo del coche, no es necesario que conozcas todos los detalles de como funciona el motor para poder conducirlo.
+
+La herencia define relaciones jerarquicas entre clases, de forma que atributos y metodos comunes puedan ser reutilizados. Las clases principales extienden atributos y comportamientos a las clases secundarias. A traves de la definicion en una clase de los atributos y comportamientos basicos, se pueden crear clases secundarias, ampliando asi la funcionalidad de la clase principal y agregando atributos y comportamientos adicionales.
+
+Volviendo al ejemplo de los animales, se puede usar una sola clase de animal y agregar un atributo de tipo de animal que especifique el tipo de animal. Los diferentes tipos de animales necesitaran diferentes metodos, por ejemplo, las aves deben poder poner huevos y los peces, nadan. Incluso cuando los animales tienen un metodo en comun, como moverse, la implementacion necesitaria muchas declaraciones «si» para garantizar el comportamiento de movimiento correcto. Por ejemplo, las ranas saltan, mientras que las serpientes se deslizan. El principio de herencia nos permite solucionar este problema.
+
+El polimorfismo consiste en diseniar objetos para compartir comportamientos, lo que nos permite procesar objetos de diferentes maneras. Es la capacidad de presentar la misma interfaz para diferentes formas subyacentes o tipos de datos. Al utilizar la herencia, los objetos pueden anular los comportamientos principales compartidos, con comportamientos secundarios especificos. El polimorfismo permite que el mismo metodo ejecute diferentes comportamientos de dos formas: anulacion de metodo y sobrecarga de metodo.
+
+Alrededor de estos principios de la programacion orientada a objetos se construyen muchas cosas. Por ejemplo, los Principios SOLID, o los Patrones de disenio, que son recetas que se aplican a problemas recurrentes que se han encontrado y se repiten en varios proyectos.
+
+Beneficios de Programacion Orientada a Objetos
+Reutilizacion del codigo.
+Convierte cosas complejas en estructuras simples reproducibles.
+Evita la duplicacion de codigo.
+Permite trabajar en equipo gracias al encapsulamiento ya que minimiza la posibilidad de duplicar funciones cuando varias personas trabajan sobre un mismo objeto al mismo tiempo.
+Al estar la clase bien estructurada permite la correccion de errores en varios lugares del codigo.
+Protege la informacion a traves de la encapsulacion, ya que solo se puede acceder a los datos del objeto a traves de propiedades y metodos privados.
+La abstraccion nos permite construir sistemas mas complejos y de una forma mas sencilla y organizada.
+
+Conclusion
+La Programacion Orientada a Objetos es actualmente el paradigma que mas se utiliza para diseniar aplicaciones y programas informaticos. Son muchas sus ventajas, principalmente cuando necesitas resolver desafios de programacion complejos. Permite una mejor estructura de datos y reutilizacion del codigo, lo que facilita el ahorro de tiempo a largo plazo. Eso si, para ello se requiere pensar bien en la estructura del programa, planificar al comienzo de la codificacion, asi como analizar los requisitos en clases simples y reutilizables que se pueden usar para diseniar instancias de objetos.

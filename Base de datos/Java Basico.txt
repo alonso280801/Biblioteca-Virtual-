@@ -1,0 +1,641 @@
+Java Basico
+Ciencias de la computacion
+
+INTRODUCCION
+
+Java se creo como parte de un proyecto de investigacion para el desarrollo de software avanzado
+para una amplia variedad de dispositivos de red y sistemas embebidos. La meta era diseniar una
+plataforma operativa sencilla, fiable, portable, distribuida y de tiempo real. Cuando se inicio el
+proyecto, C++ era el lenguaje del momento. Pero a lo largo del tiempo, las dificultades encontradas
+con C++ crecieron hasta el punto en que se penso que los problemas podrian resolverse mejor
+creando una plataforma de lenguaje completamente nueva. Se extrajeron decisiones de disenio y
+arquitectura de una amplia variedad de lenguajes como Eiffel, SmallTalk, Objetive C y Cedar/Mesa.
+El resultado es un lenguaje que se ha mostrado ideal para desarrollar aplicaciones de usuario final
+seguras, distribuidas y basadas en red en un amplio rango de entornos desde los dispositivos de
+red embebidos hasta los sistemas de sobremesa e Internet.
+
+OBJETIVOS DE DISENIO DE JAVA
+
+Sencillo, Orientado a Objetos y Familiar
+
+Robusto y Seguro
+
+Independiente de la Arquitectura y Portable
+
+Alto Rendimiento
+
+Interpretado, Multi-Hilo y Dinamico
+
+CARACTERISTICAS
+
+    -   Lenguaje de Proposito General.
+    -   Lenguaje Orientado a Objetos.
+    -   Sintaxis inspirada en la de C/C++.
+    -   Lenguaje Multiplataforma: Los Programas Java se Ejecutan sin Variacion (sin recompilar)
+        en Cualquier Plataforma Soportada (Windows, UNIX, Mac...).
+    -   Lenguaje Interpretado: El Interprete a Codigo Maquina (dependiente de la plataforma) se
+        llama Java Virtual Machine (JVM). El Compilador Produce un Codigo Intermedio
+        Independiente del Sistema Denominado bytecode.
+    -   Lenguaje Gratuito: Creado por SUN Microsystems, que Distribuye Gratuitamente el
+        Producto Base, Denominado JDK (Java Development Toolkit) o Actualmente J2SE (Java 2
+        Standard Edition).
+    -   API Distribuida con el J2SE muy Amplia. Codigo Fuente de la API Disponible.
+
+Los programas mas comunes de Java son las Standalone Programs (Aplicaciones) y los Applets.
+Las Standalone Programs son Aplicaciones que se pueden ejecutar como cualquier otro lenguaje
+de programacion, sin necesidad de ningun elemento soporte. Los Applets son pequenias
+Aplicaciones en Java, que se transfiere a traves de la red y que necesita para su ejecucion un
+browser (Navegador o Visualizador) de red compatible con Java.
+"Escribe Una Vez y Ejecuta en Cualquier Plataforma"
+
+El exito imparable y sin precedentes del lenguaje de programacion Java desde sus inicios en el
+anio 1996 se debe en gran parte a que este lenguaje es independiente de cualquier Plataforma. Es
+decir, cualquier aplicacion Java se puede desarrollar en la plataforma que nosotros como
+desarrolladores nos sintamos mas comodos y se podra ejecutar o explotar en la plataforma que
+nuestros clientes elijan.
+
+   -   Plataforma de Desarrollo (Windows, Linux, Mac OS X, o cualquier otro)
+           Primero que todo necesitamos saber cual es la arquitectura Hardware de nuestro ordenador
+               y que Sistema Operativo utilizamos para poder instalar la MVJ (Maquina Virtual Java) que
+               corresponda a nuestra Plataforma.
+
+   -   IDE Entorno de Desarrollo (NetBeans o cualquier otro)
+           o En el mercado hay muchos entornos de desarrollo disponibles y de muy alta calidad
+                   - en este curso utilizaremos el IDE NetBeans que es un entorno de desarrollo Open
+                       Source escrito en Java y auspiciado por Sun Microsystems
+
+   -   MVJ (Maquina virtual Java)
+          o La MVJ no existe como tal fisicamente. Es en realidad un conjunto de comandos y
+              programas que se ejecutan en un direccionamiento de memoria separado del resto de
+              procesos que se puedan estar ejecutando en paralelo en ese momento en nuestro
+              ordenador.
+          o Codigo Java
+                  - El codigo fuente de las Aplicaciones Java que creamos esta separado por
+                      diferentes ficheros con extension .java.
+                            - Las Clases estan contenidas en los ficheros con extension .java
+                                     - Cada Clase tiene su propio fichero.
+                                              - Ya hablaremos largo y tendido sobre las Clases durante
+                                                  todo el curso.
+          o Compilacion
+                  - Al poco tiempo de aparecer en escena el lenguaje Java, las Aplicaciones se
+                      escribian en un procesador de texto y la compilacion del codigo fuente se realizaba
+                      desde una consola de comandos propia del Sistema Operativo que se estaba
+                      utilizando.
+                            - Entonces tenias que escribir en la linea de comando el comando javac
+                                seguido de las Clases que querias compilar.
+                  - Debido a que el IDE NetBeans esta situado en una capa por encima de la MVJ, no
+                      nos hace falta utilizar una consola de comandos para poder compilar las Clases
+                      Java.
+                            - En este caso, nosotros simplemente tenemos que hacer clic sobre un
+                                boton de compilacion, que ya veremos mas adelante, y esta accion
+                                desencadena que el IDE invoque, de forma transparente para nosotros, el
+                                comando javac que esta incluido en la MVJ para compilar dichas Clases.
+          o Codigo byte
+                  - El resultado de la compilacion genera ficheros con extension .class
+                            - Estos ficheros contienen codigo byte
+                                     - Este codigo byte es universal.
+                                              - Es decir, no importa con que plataforma estemos
+                                                  desarrollando que el codigo de bajo nivel generado es
+                                                  100% compatible con la MVJ
+          o Interpretacion
+                  - A diferencia de otros lenguajes que sus Aplicaciones se arrancan directamente
+                      ejecutando un fichero con extension normalmente .exe, para ejecutar una
+                      Aplicacion Java desde la linea de comando se tiene que ejecutar primeramente el
+                      comando java.
+                            - Este comando crea un entorno de ejecucion Java en memoria y
+                                transforma el codigo byte de los ficheros con extension .class en codigo
+                                de bajo nivel propio de cada plataforma
+ 
+                              -    En este caso el IDE NetBeans tambien tiene un boton, que ya veremos en
+                                   su momento, para interpretar dicho codigo byte y ejecutar la Aplicacion
+                                   para que el usuario final la pueda utilizar.
+             o   Librerias estandar Java
+                      - Seria impensable que todo el codigo de una Aplicacion estuviera escrito por
+                          nosotros.
+                              - Como cualquier otro lenguaje, Java tiene una nutrida API (Application
+                                   Program Interface) que contiene las librerias estandar Java.
+                      - En el proceso de interpretacion, el interpretador Java invoca las Clases de la
+                          mencionada libreria estandar Java y las interpreta.
+             o   Las Aplicaciones java desde sus principios siempre se han ganado la mala fama de ser mas
+                 lentas que otras aplicaciones convencionales. Pero hay que decir que el tiempo corre a
+                 favor de Java debido a que los ordenadores cada vez tienen frecuencias de reloj mas
+                 rapidas y capacidades de memoria cada vez mas grandes.
+                      - Tampoco se descarta que en un futuro la MVJ este implementada
+                          directamente en un procesador.
+
+Cuando tenemos que instalar una aplicacion creada por nosotros mismos en casa de un cliente, este tiene
+que tener instalado en su ordenador de produccion la MVJ correspondiente a su Plataforma.
+
+    -   La MVJ se puede descargar de Internet como un JDK (Java Development Kit) o un JRE (Java
+        Runtime Environment).
+            o JRE
+                    - En el caso que solo queramos ejecutar las Aplicaciones en el ordenador de
+                        produccion.
+            o JDK
+                    - En el caso de que ademas de ejecutar las Aplicaciones en el ordenador de
+                        produccion, tambien queramos compilar en el citado ordenador de produccion.
+                    - Cuando se instala un JDK, el Wizard o Asistente tambien instala automaticamente
+                        su correspondiente JRE.
+
+Donde Bajar el JDK (Java Develompment Kit) y el JRE (Java Runtime Environment)
+
+En la Direccion WEB http://www.java.sun.com en el area Download podra encontrar la opcion de descarga de
+su preferencia.
+
+DEFINICION DE TIPOS
+
+Java es un lenguaje con control fuerte de Tipos (Strongly Typed). Esto significa que cada Variable y cada
+expresion tienen un Tipo que es conocido en el momento de la compilacion. El Tipo limita los valores que una
+variable puede contener, limita las operaciones soportadas sobre esos valores y determina el significado de
+las operaciones. El control fuerte de tipos ayuda a detectar errores en tiempo de compilacion.
+
+En Java existen dos categorias de Tipos:
+
+    -   Tipos Primitivos
+    -   Referencias
+
+DEFINICION DE TIPOS PRIMITIVOS
+
+Los Tipos Primitivos son los que permiten manipular valores numericos (con distintos grados de precision),
+caracteres y valores booleanos (verdadero / falso). Los Tipos Primitivos son:
+
+    -   boolean: Puede contener los Valores True o False.
+    -   byte: Enteros. Tamanio 8-bits. Valores entre -128 y 127.
+    -   short: Enteros. Tamanio 16-bits. Entre -32768 y 32767.
+    -   int: Enteros. Tamanio 32-bits. Entre -2147483648 y 2147483647.
+ 
+    -    long: Enteros. Tamanio 64-bits. Entre -9223372036854775808 y 9223372036854775807.
+    -    float: Numeros en Coma Flotante. Tamanio 32-bits.
+    -    double: Numeros en Coma Flotante. Tamanio 64-bits.
+    -    char: Caracteres. Tamanio 16-bits. Unicode. Desde '\u0000' a '\uffff' Inclusive. Esto es desde 0 a
+         65535
+
+El tamanio de los tipos de datos no depende de la implementacion de Java. Son siempre los mismos.
+
+DEFINICION DE REFERENCIAS
+
+Las Referencias en Java no son punteros ni Referencias como en C++. Este hecho crea un poco de confusion
+entre los programadores que llegan por primera vez a Java. Las Referencias en Java son identificadoras de
+instancias de las clases Java. Una Referencia dirige la atencion a un objeto de un tipo especifico.
+
+DEFINICION DE VARIABLES
+
+Una variable es un area en memoria que tiene un nombre y un Tipo asociado. El Tipo es o bien un Tipo
+Primitivo o una Referencia. Es obligatorio declarar las Variables antes de usarlas. Para declararlas se indica
+su nombre y su Tipo, de la siguiente forma:
+
+Ejemplo:
+
+tipo_variable nombre ;
+
+int i;    // Declaracion de un entero
+char letra; // Declaracion de un caracter
+boolean flag; // Declaracion de un booleano
+
+Se pueden asignar Valores a las Variables mediante la instruccion de asignacion.
+
+Ejemplo:
+
+i = 5;      // a la Variable i se le asigna el Valor 5
+letra = 'c'; // a la Variable letra se le asigna el Valor 'c'
+flag = false; // a la Variable flag se le asigna el Valor false
+
+La Declaracion y la Combinacion se pueden combinar en una sola expresion:
+
+Ejemplo:
+
+int i = 5;
+char letra = 'c';
+boolean flag = false;
+
+DECLARACION DE METODOS
+
+En Java toda la logica de programacion (Algoritmos) esta agrupada en Funciones o Metodos.
+
+Un Metodo es:
+
+    -    Un Bloque de Codigo que tiene un Nombre,
+    -    Recibe unos Parametros o Argumentos (opcionalmente).
+    -    Contiene Sentencias o Instrucciones para realizar algo (opcionalmente).
+    -    Devuelve un Valor de algun Tipo conocido (opcionalmente).
+ 
+Ejemplo:
+
+Tipo_Valor_devuelto nombre_metodo (lista_argumentos) {
+    bloque_de_codigo;
+}
+
+Ejemplo:
+
+int sumaEnteros (int a, int b) {
+     int c = a + b;
+     return c;
+}
+
+    -      El Metodo se llama sumaEnteros.
+    -      Recibe dos Parametros tambien enteros. Sus Nombres son a y b.
+    -      Devuelve un entero.
+
+En el ejemplo la Clausula return se usa para finalizar el Metodo devolviendo el Valor de la Variable c.
+
+El Termino VOID
+
+El hecho de que un Metodo devuelva o no un Valor es opcional. En caso de que devuelva un Valor se declara
+el tipo que devuelve. Pero si no necesita ningun Valor, se declara como tipo del Valor devuelto, la palabra
+reservada void.
+
+Ejemplo:
+
+void haceAlgo() {
+     ...
+  }
+
+USO DE METODOS
+
+Los Metodos se invocan con su nombre, y pasando la lista de argumentos entre parentesis. El conjunto se usa
+como si fuera una variable del Tipo devuelto por el Metodo.
+
+Ejemplo:
+
+int x;
+x = sumaEnteros(2,3);
+
+Aunque el metodo no reciba ningun Argumento, los parentesis en la llamada son obligatorios. Por ejemplo
+para llamar a la Funcion haceAlgo, simplemente se pondria:
+
+Ejemplo:
+
+haceAlgo();
+
+DEFINICION DE CLASES
+
+Las Clases son el mecanismo por el que se pueden crear nuevos Tipos en Java. Las Clases son el punto
+central sobre el que giran la mayoria de los conceptos de la Orientacion a Objetos.
+
+Una Clase es una agrupacion de Datos y de Codigo que actua sobre esos Datos, a la que se le da un
+nombre.
+ 
+Una Clase contiene:
+
+    -   Datos (se denominan Datos Miembro). Estos pueden ser de Tipos Primitivos o Referencias.
+    -   Metodos (se denominan Metodos Miembro).
+
+Ejemplo:
+
+modificadores class nombre_clase {
+   declaraciones_de_miembros ;
+}
+
+Ejemplo:
+
+class Punto {
+   int x;
+   int y;
+}
+
+Ejemplo (Estructura del Standalone Programs)
+
+class myfirstjavaprog
+{
+        public static void main(String args[])
+        {
+           System.out.println("Hello World!");
+        }
+}
+
+NOTA: DEFINICION DEL ENTORNO DE DESARROLLO NETBEANS IDE 6.5.1
+ 
+Ejemplo (Codigo del Applets)
+
+
+package com.chuidiang.ejemplos.applet;
+
+import javax.swing.JApplet;
+import javax.swing.JLabel;
+
+/**
+ * Ejemplo sencillo de applet
+ * @author Gregory Rangel
+ *
+ */
+public class EjemploApplet extends JApplet {
+        /**
+         * Pone un JLabel con el texto "Applet hola mundo" en el JApplet,
+de
+         * forma que es lo que se visualizara en el navegador.
+         */
+        public void init() {
+                JLabel etiqueta = new JLabel("Applet hola mundo");
+                add(etiqueta);
+        }}
+
+
+Ejemplo (Estructura del Applets en HTML)
+
+
+<html>
+   <head>
+      <title>Ejemplo de Applet</title>
+   </head>
+   <body>
+      <applet code="com.chuidiang.ejemplos.applet.EjemploApplet"
+         width="500" height="200">
+      Debes tener instalado java
+      </applet>
+   </body>
+</html>
+ 
+DEFINICION DE APPLET
+
+Pequenio Programa basado en internet y escrito en Java, los Applets generalmente estan embebidos en
+Paginas WEB y pueden ser ejecutados directamente desde un navegador con soporte para Java.
+
+Para que un Java Applet pueda ser ejecutado, el navegador debe contar con una Maquina Virtual Java.
+
+Los Java Applet son una forma de Aplicacion WEB, con los cuales puede hacerse practicamente lo mismo
+que con una Aplicacion tradicional. Por ejemplo, con un Java Applet puede incorporarse animacion WEB a
+una Pagina WEB.
+
+NOTA:
+
+Las dos primeras lineas:
+
+import java.awt.*;
+import java.applet.*;
+Son declaraciones para el compilador. Le avisan lo siguiente: hay Clases, que vamos a usar en este archivo,
+que provienen de un Grupo de Clases, que en Java se llama Paquete. Se indica que vamos a usar Clases del
+Paquete java.awt, y Clases del Paquete java.applet importar esos Paquetes de Clases.
+
+El Paquete java.awt debe su nombre al AWT (Abstract Window Toolkit), un conjunto de Clases que nos
+permite usar metodos graficos, y componentes, independizandonos de la plataforma. Los objetos AWT se
+pueden usar en Windows, en X/Windows de Linux o en cualquier otro entorno grafico que tenga implementada
+una Maquina Virtual de Java. Por ejemplo, vamos a manejar ventanas y botones, y las aplicaciones correran
+en las distintas plataformas, sin necesidad de reescribir el codigo, o de recompilar.
+
+El paquete java.applet se encarga de definir una serie de Clases adicionales, en especial, la Clase Applet,
+que nos permite generar Aplicaciones del tipo Applet, para ejecutar desde una Pagina HTML.
+
+Si no colocamos las declaraciones "import", nuestro ejemplo no compilaria. El compilador no encontraria cual
+es, por ejemplo, la Clase Applet o la Clase Graphics, que son usadas en el codigo.
+
+ESTRUCTURA DEL AWT
+
+La Estructura “basica” del AWT se basa en Componentes y Contenedores. Estos ultimos contienen
+Componentes posicionados a su respecto y son Componentes a su vez, de forma que los eventos pueden
+tratarse tanto en Contenedores como en Componentes, corriendo por cuenta del programador.
+
+COMPONENTES Y CONTENEDORES
+
+Una interfaz grafica esta construida en base a elementos graficos “basicos”, los Componentes. Tipicos
+ejemplos de estos Componentes son los botones, barras de desplazamiento, etiquetas, listas, cajas de
+seleccion o campos de texto. Los Componentes permiten al usuario interactuar con la Aplicacion y
+proporcionar informacion desde el Programa al usuario sobre el estado del Programa. En el AWT, todos los
+Componentes de la interface de usuario son instancias de la Clase Component o uno de sus subtipos.
+
+Los Componentes no se encuentran aislados, sino agrupados dentro de Contenedores. Los Contenedores
+contienen y organizan la situacion de los Componentes; ademas, los Contenedores son en si mismos
+Componentes y como tales pueden ser situados dentro de otros Contenedores. Tambien contienen el codigo
+necesario para el control de eventos, cambiar la forma del cursor o modificar el icono de la aplicacion. En el
+AWT, todos los Contenedores son instancias de la Clase Container o uno de sus subtipos.
+ 
+TIPOS DE COMPONENTES
+
+En el arbol siguiente se muestra la relacion que existe entre todas las Clases que proporciona AWT para la
+creacion de interfaces de usuario, presentando la jerarquia de Clases e Interfaces:
+
+Clases:
+
+    -   Adjustable
+    -   BorderLayout
+    -   CardLayout
+    -   CheckboxGroup
+    -   Color
+    -   Component
+            o Button
+            o Canvas
+            o Checkbox
+            o Choice
+            o Container
+            o Panel
+                    - Applet
+            o ScrollPane
+            o Window
+                    - Dialog
+                    - FileDialog
+                    - Frame
+            o Label
+            o List
+            o Scrollbar
+            o TextComponent
+            o TextArea
+            o TextField
+    -   Cursor
+    -   Dimension
+    -   Event
+    -   FlowLayout
+    -   Font
+    -   FontMetrics
+    -   Graphics
+    -   GridLayout
+    -   GridBagConstraints
+    -   GridBagLayout
+    -   Image
+    -   Insets
+    -   MediaTracker
+    -   MenuComponent
+            o MenuBar
+            o MenuItem
+            o CheckboxMenuItem
+            o Menu
+                    - PopMenu
+    -   MenuShorcut
+    -   Point
+    -   Polygon
+    -   PrintJob
+    -   Rectangle
+    -   Toolkit
+ 
+Interfaces:
+
+   -   LayoutManager
+   -   LayoutManager2
+   -   MenuContainer
+   -   Shape
+
+
+
+
+PALABRAS RESERVADAS
+
+java.import
+
+Para importar Clases de un paquete se usa el comando import. Se puede importar una Clase
+individualmente.
+
+         import java.awt.Font;
+
+O bien, se puede importar las Clases declaradas publicas de un Paquete completo, utilizando un
+asterisco (*) para reemplazar los nombres de Clase individuales.
+
+         import java.awt.*;
+
+Para crear un objeto fuente de la Clase Font podemos seguir dos alternativas.
+
+         import java.awt.Font;
+         Font fuente=new Font("Monospaced", Font.BOLD, 36);
+
+O bien, sin poner la sentencia import
+
+         java.awt.Font fuente=new java.awt.Font("Monospaced", Font.BOLD,
+36);
+
+Normalmente, usaremos la primera alternativa, ya que es la mas economica en codigo, si
+tenemos que crear varias fuentes de texto.
+
+
+
+
+Se pueden combinar ambas formas, por ejemplo, en la definicion de la clase BarTexto
+
+import java.awt.*;
+public class BarTexto extends Panel implements java.io.Serializable{
+//...
+}
+ 
+PAQUETES ESTANDARES
+
+Paquete       Descripcion
+              Contiene las Clases necesarias para crear Applets que se ejecutan en la
+java.applet
+              ventana del navegador.
+              Contiene Clases para crear una Aplicacion GUI independiente de la
+java.awt
+              plataforma.
+java.io       Entrada/Salida. Clases que definen distintos flujos de Datos.
+              Contiene Clases esenciales, se importa implicitamente sin necesidad de
+java.lang
+              una sentencia import.
+              Se usa en combinacion con las Clases del paquete java.io para leer y
+java.net
+              escribir Datos en la red.
+java.util     Contiene otras Clases utiles que ayudan al programador.
+
+
+java.util
+
+Contiene el marco de las colecciones, herencia recogida clases, modelo de evento, fecha y hora
+de las instalaciones, la internacionalizacion, y diversas Clases de utilidad.
+
+
+
+
+INTERFAZ GRAFICA EN NETBEANS IDE 6.1
+
+El “Constructor” de interfaces de usuario del IDE NetBeans (conocido anteriormente como el
+“Proyecto Matisse”) es un modulo del Entorno de Desarrollo Integrado NetBeans.
+
+Este editor de interfaces graficas esta orientado hacia la libreria grafica Swing de Java. Es
+decir, que unicamente produce codigo fuente para Java.
+
+En NetBeans 6.1 el generador de interfaces graficas de usuario se ha hecho mas eficiente:
+ahora es mas potente e intuitivo, y permite a los usuarios generar interfaces graficas de
+usuario de aspecto profesional sin necesidad de profundizar en el conocimiento de los
+administradores de disenio.
+
+El nuevo generador de interfaces graficas de usuario de NetBeans acaba con las dificultades
+inherentes a la generacion de interfaces graficas de usuario, lo que permite diseniar
+formularios colocando simplemente los componentes donde desee.
+
+DEFINICION DE JFRAME
+
+El Frame es un Contenedor que tiene como tarea guardar nuestros Componentes y darles un
+sentido grafico, digamos que el Frame es una ventana que tiene propiedades como tamanio,
+posicion, titulo, etc.
+ 
+DEFINICION DE SWING
+
+
+El paquete Swing es parte de la JFC (Java Foundation Classes) en la plataforma Java. La
+JFC provee facilidades para ayudar a la gente a construir GUIs. Swing abarca componentes
+como botones, tablas, marcos, etc.
+
+Las componentes Swing se identifican porque pertenecen al paquete javax.swing.
+
+Swing existe desde la JDK 1.1 (como un agregado). Antes de la existencia de Swing, las
+interfaces graficas con el usuario se realizaban a traves de AWT (Abstract Window Toolkit),
+de quien Swing hereda todo el manejo de eventos. Usualmente, para toda componente AWT
+existe una componente Swing que la reemplaza, por ejemplo, la Clase Button de AWT es
+reemplazada por la Clase JButton de Swing (el nombre de todas las componentes Swing
+comienza con "J").
+
+Las componentes de Swing utilizan la infraestructura de AWT, incluyendo el modelo de
+eventos AWT, el cual rige como una componente reacciona a eventos tales como, eventos de
+teclado, mouse, etc. Es por esto, que la mayoria de los programas Swing necesitan importar
+dos paquetes AWT: java.awt.* y java.awt.event.*.
+
+EL ALUMNO REVISARA EL USO DE LAS CLASES MAS COMUNES EN LA CREACION
+DE JFRAME AVANZADOS.
+
+Ejemplo:
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class HolaMundoSwing {
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("HolaMundoSwing");
+        final JLabel label = new JLabel("Hola Mundo");
+        frame.getContentPane().add(label);
+
+           //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+           frame.addWindowListener(new java.awt.event.WindowAdapter(){
+              public void windowClosing(WindowEvent e){
+                System.exit(0);
+              }
+           }
+           );
+
+           frame.pack();
+           frame.setVisible(true);
+    }
+}
+ 
+CONEXION A BASES DE DATOS CON NETBEANS IDE 6.1
+
+CONEXION A LA BASE DE DATOS
+
+1. Registrar (Cargar en Memoria) el controlador. Esto se puede hacer de dos formas:
+
+De forma dinamica, por medio del metodo Class.forName(String de driver). Esta es la
+forma mas usual.
+
+Ejemplo:
+
+Ejemplos de carga dinamica:
+
+* En MySQL local: Class.forName("com.mysql.jdbc.Driver");
+* En Oracle: Class.forName("oracle.jdbc.Driver.OracleDriver");
+
+De manera estatica, usando System.setProperties("jdbc.drivers",String de driver).
+
+2. Establecer la conexion por medio del metodo DriverManagerConnection conexion =
+DriverManager.getConnection("jdbc:mysql://localhost/
+java?user=root&password=admin");
+
+DriverManager tiene muchos Metodos getConnection() con Parametros variados. Todos son
+variantes de lo mismo y la informacion que suministramos es la misma. Aqui hemos utilizado
+uno con tres Parametros String.
+
+Para enviar comandos SQL a la Base de Datos, se usa la Clase Statement de java. Esta
+Clase se obtiene a partir de la conexion, de esta forma:
+
+Statement instruccion = conexion.createStatement();
+
+Por supuesto, dentro de un try-catch.
+
+Statement tiene muchos metodos, pero hay dos interesantes: executeUpdate() y
+executeQuery(). El primero se usa para sentencias SQL que implica modificaciones en la
+base de datos (INSERT, UPDATE, DELETE, etc). El segundo solo para consultas (SELECT y
+similares).
